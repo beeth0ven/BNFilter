@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import BNFilter
 // This VC is just a demo, and it is presenting FilterVC, it use unwindSegue to hanlde FilterVC's call back
 class PresentFilterVC: UIViewController {
     @IBAction func presentFilterVCAndDoCancel(segue: UIStoryboardSegue) {}

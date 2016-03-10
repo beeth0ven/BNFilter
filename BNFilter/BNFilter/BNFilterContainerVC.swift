@@ -9,12 +9,12 @@
 import UIKit
 
 // This VC is required, and controls the animation
-class BNFilterContainerVC: UIViewController {
+public class BNFilterContainerVC: UIViewController {
     
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     
-    var configRootViewController:((UIViewController) -> Void)?
+    public var configRootViewController:((UIViewController) -> Void)?
     
     private var isContainerShowed: Bool! {
         didSet {
@@ -25,7 +25,7 @@ class BNFilterContainerVC: UIViewController {
     
     // Appear
     private var isSizeUpdated = false
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard !isSizeUpdated else { return }
         isSizeUpdated = true
@@ -44,7 +44,7 @@ class BNFilterContainerVC: UIViewController {
     }
     
     // Disappear
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         isContainerShowed = false
         UIView.animateWithDuration(0.3) { self.view.layoutIfNeeded() }
@@ -54,7 +54,7 @@ class BNFilterContainerVC: UIViewController {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let rootViewController = segue.destinationViewController
         print("---\(rootViewController)")
         configRootViewController?(rootViewController)
